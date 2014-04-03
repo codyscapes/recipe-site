@@ -1,0 +1,40 @@
+<h1>Hello Cody</h1>
+
+<% if @recipes.nil? %>
+  <h2> Here are all of the recipes </h2>
+<% else %>
+  <h2>Here are the search results for <%= @query %>:</h2>
+<% end %>
+
+<a href="/recipes?sort=rating&query<%= @query %>"
+      data-method="get"
+      rel="nofollow"><button> Sort By Rating!</button></a></p>
+  <ul>
+    <% @recipes.each do |recipe|%>
+      <a href="/recipes/<%= recipe.id %>"><li><%= recipe.name %></a> | <%= recipe.created_at.strftime("Created on %m/%d") %> | <strong>Rating: </strong><%= recipe.average_rating %> | <a href="/recipes/<%=recipe.id%>/edit"> Edit</a>
+        <ul>
+          <% recipe.tags.uniq.each do |tag| %>
+            <li class = 'tags'> <%= tag.name %> </li>
+          <% end %>
+        </ul>
+      </li>
+
+    <% end %>
+  </ul>
+
+<a href="/recipes/new"><button>Create a New Recipe</button></a>
+
+<h2> Here are the availible recipe tags </h2>
+  <ul>
+    <% @tags.each do |tag|%>
+      <a href="/tags/<%= tag.id %>"><li><%= tag.name %></a> |<a href="/tags/<%=tag.id%>/edit">Edit</a> </li>
+    <% end %>
+  </ul>
+<a href="/tags/new"><button>Create a New Tag</button></a>
+
+</br>
+</br>
+<form action='/recipes?query' method='get' id='search'>
+  <input id="search" type='text' name='query'>
+  <button> Search recipes!</button>
+</form>

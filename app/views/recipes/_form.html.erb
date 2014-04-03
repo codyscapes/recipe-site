@@ -1,0 +1,17 @@
+<label for="recipe_name">Name</label>
+  <input id="recipe_name" name="recipe[name]" type="text" value= "<%=@recipe.name%>" >
+  <button>Submit</button>
+</form>
+<h4> Enter your recipes instructions </h4>
+<textarea name="recipe[instructions]" form="newrecipe" rows=20 cols=100> <%= @recipe.instructions %></textarea>
+</br>
+
+<h5> Don't forget to tag </h5>
+<select form="newrecipe" name="tag">
+  <% @tags.each do |tag| %>
+    <option value="<%= tag.id %>" name="tag"> <%= tag.name %></option>
+  <% end %>
+</select>
+</br>
+<a href="/recipes">Go Home</a>
+
