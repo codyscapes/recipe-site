@@ -11,7 +11,7 @@
       rel="nofollow"><button> Sort By Rating!</button></a></p>
   <ul>
     <% @recipes.each do |recipe|%>
-      <a href="/recipes/<%= recipe.id %>"><li><%= recipe.name %></a> | <%= recipe.created_at.strftime("Created on %m/%d") %> | <strong>Rating: </strong><%= recipe.average_rating %> | <a href="/recipes/<%=recipe.id%>/edit"> Edit</a>
+      <a class ='picHover' href="/recipes/<%= recipe.id %>"><li><%= recipe.name %> <span class='hidden'> <%= recipe.URL %></span></a> | <%= recipe.created_at.strftime("Created on %m/%d") %> | <strong>Rating: </strong><%= recipe.average_rating %> | <a href="/recipes/<%=recipe.id%>/edit"> Edit</a>
         <ul>
           <% recipe.tags.uniq.each do |tag| %>
             <li class = 'tags'> <%= tag.name %> </li>

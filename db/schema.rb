@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403183831) do
+ActiveRecord::Schema.define(version: 20140403230029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140403183831) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "URL"
   end
 
   create_table "recipes_tags", force: true do |t|
