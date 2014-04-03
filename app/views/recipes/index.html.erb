@@ -1,4 +1,4 @@
-<h1>Hello Cody</h1>
+<h1>Hello Daniel Miller</h1>
 
 <% if @recipes.nil? %>
   <h2> Here are all of the recipes </h2>
@@ -6,7 +6,7 @@
   <h2>Here are the search results for <%= @query %>:</h2>
 <% end %>
 
-<a href="/recipes?sort=rating&query<%= @query %>"
+<a href="/recipes?sort=rating&query=<%= @query %> "
       data-method="get"
       rel="nofollow"><button> Sort By Rating!</button></a></p>
   <ul>

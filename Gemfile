@@ -8,6 +8,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'textacular'
+gem 'meta_request'
 
 group :development do
   gem 'better_errors'

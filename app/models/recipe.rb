@@ -8,9 +8,9 @@ class Recipe < ActiveRecord::Base
     avg.round(2)
   end
 
-  def self.sort(sort_method)
+  def self.sort(arr, sort_method)
     if sort_method == 'rating'
-      Recipe.all.sort_by{ |recipe| recipe.average_rating }.reverse!
+      arr.sort_by{ |recipe| recipe.average_rating }.reverse!
     end
   end
 end

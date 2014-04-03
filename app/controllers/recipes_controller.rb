@@ -3,7 +3,19 @@ class RecipesController < ApplicationController
     @ratings = Rating.all
     @tags = Tag.all
     @query = params[:query]
-    if params[:query]
+    if params[:sort]  && params[:query]
+      if params[:query] == ''
+        @recipes = Recipe.all
+        r = Recipe.sort(@recipes, params[:sort])
+        @recipes = r
+        render("index.html.erb")
+      else
+        @recipes = Recipe.basic_search(params[:query])
+        r = Recipe.sort(@recipes, params[:sort])
+        @recipes = r
+        render("index.html.erb")
+      end
+    elsif params[:query] && params[:sort] != ''
       @recipes = Recipe.basic_search(params[:query])
       render("index.html.erb")
     else
